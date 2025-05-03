@@ -19,6 +19,7 @@ Cabos elétricos
 - Imagens de exemplo dos sinais capturados e comportamento do painel
 - Datasheet MCP2515
 - Arquivo DBC para análise
+- ** Arquivo DBC,esquema elétrico e biblioteca MCP2515 disponiveis
 
 ## Próximos passos:
 Expandir simulação de luzes e avisos de erro
