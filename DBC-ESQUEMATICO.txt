@@ -1,0 +1,104 @@
+
+
+
+
+
+Arquivo DBC - CAN PSA/PEUGEOT 208
+
+
+ID 0F6 DLC 8 - BYTE 01 - MANIPULAÇÃO DA LUZ DE DIREÇÃO ELÉTRICA - APAGADA =  0C
+               BYTE 02 - TEMPERATURA DO MOTOR - TEMPERATURA EM 90ºC       =  79 (para aumentar ou diminuir a temperatura basta aumentar ou diminuir o comando do bit)
+               BYTE 03 - 
+               BYTE 04 -
+               BYTE 05 - Os tres bytes acima,realizam a alteração de quilometragem do painel,não aconselho modificar,visto que nesses carros o painel assume o numero maior
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ID 161 DLC 8 - BYTE 4  - Nivel de combustivel 05 reserva - 2A 1/2 TANQUE - 4A 3/4 TANQUE - 59 TANQUE CHEIO
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ID 168 DLC 8 - WARNING LIGHTS (Nesse caso,todos os bits podem ser manipulados em 00 ou 01 apagando as luzes de advertencia,ou combinando as luzes acesas,a sua escolha).
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ID 128 DLC 8 - DASH LIGHTS
+               BYTE 01 - Controla o sistema de sinalização e iluminação,podendo combinar as luzes de posição e luzes de sinalização iniciando em 01.
+               BYTE 02 - Controle de posição das marchas inciando em 01 = para Parking (Podendo ser modificado até a marcha 06)
+               BYTE 04 - Luz de service - (01 acesa - 00 apagada)
+               BYTE 05 - Portas abertas e advertencia de aquecimento de bicos injetores (00 - apagadas)
+               BYTE 06 - Cinto de segurança e luz de reserva de combustivel (00 apagadas)
+               BYTE 07 - Somente comanda cinto de segurança (00 apagado)
+               BYTE 08 - Pedido de peda de embreagem (00 apagado)
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+ID 0B6 DLC 8 - RPM E ACELERAÇÃO
+               BYTE 01 - 15 - 600 RPM
+                         1F - 1000 RPM
+                         2F - 1500 RPM
+                         3F - 2000 RPM
+                         4F - 2500 RPM
+                         5F - 3000 RPM
+                         6F - 3500 RPM
+                         7F - 4000 RPM
+                         8F - 4500 RPM
+                         9F - 5000 RPM
+                         AF - 5500 RPM
+                         BF - 6000 RPM
+                         CF - 6500 RPM
+                         DF - 7000 RPM (Os bits podem ser modificados de forma intermediaria para que a rotação também possa ser modificada de forma intermediária)
+
+              BYTE 03 -  02 - 5 KM/H
+                         04 - 10 KM/H
+                         06 - 15 KM/H
+                         08 - 20 KM/H 
+                         09 - 25 KM/H
+                         0A - 30 KM/H
+                         0B - 35 KM/H
+                         0F - 40 KM/H
+                         13 - 50 KM/H
+                         16 - 60 KM/H
+                         1B - 70 KM/H
+                         1F - 80 KM/H
+                         22 - 90 KM/H
+                         26 - 100 KM/H
+                         2A - 110 KM/H
+                         2F - 120 KM/H
+                         31 - 130 KM/H
+                         35 - 140 KM/H
+                         3A - 150 KM/H
+                         3D - 160 KM/H
+                         41 - 170 KM/H
+                         45 - 180 KM/H
+                         48 - 190 KM/H
+                         4D - 200 KM/H
+                         4F - 210 KM/H
+                         55 - 220 KM/H
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Esquema elétrico de ligação em bancada 
+
+arduino nano  -   MCP2515                
+5V       >         VCC 
+GND      >        GND
+D10      >        CS
+SCK      >        D13
+D11      >        SI (MOSI)
+D12      >        SO (MISO)
+D2       >        INT
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Esquema de ligação painel de instrumentos 
+
+painel de intrumentos
+
+pino 07 - CAN HIGH
+pino 09 - CAN LOW
+pino 10 - Positivo
+pino 15 - negativo (GND)
+
+
+                      
